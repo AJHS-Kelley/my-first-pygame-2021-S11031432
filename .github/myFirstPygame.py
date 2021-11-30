@@ -1,4 +1,4 @@
-# My First Pygame, Caleb Jones, 11/30/21, 2:45PM, v0.5
+# My First Pygame, Caleb Jones, 11/30/21, 2:48PM, v0.6
 
 import pygame, sys
 from pygame.locals import *
@@ -27,8 +27,8 @@ textRect = text.get_rect()
 textRect.centerx = windowSurface.get_rect().centerx
 textRect.centery = windowSurface.get_rect().centery
 
-
-
+# Draw the game background.
+windowSurface.fill(BLOODBLUE)
 
 
 
