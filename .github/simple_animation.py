@@ -1,4 +1,4 @@
-# Simple Animation with PyGame, Caleb Jones, 1/4/22, 2:36PM, v.0.1
+# Simple Animation with PyGame, Caleb Jones, 1/4/22, 2:41PM, v.0.2
 
 import pygame, sys, random
 from pygame.locals import *
@@ -12,9 +12,10 @@ WINDOWHEIGHT = 400
 windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT), 0, 32)
 pygame.display.set_caption('Animation Example!')
 
+# Setup the direction variables.
+DOWNLEFT = 'downleft'
+DOWNRIGHT = 'downright'
+UPLEFT = 'upleft'
+UPRIGHT = 'upright'
 
-
-
-
-
-
+MOVESPEED = 4
