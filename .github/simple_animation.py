@@ -1,4 +1,4 @@
-# Simple Animation with PyGame, Caleb Jones, 1/12/22, 1:54PM, v.0.7
+# Simple Animation with PyGame, Caleb Jones, 1/12/22, 1:59PM, v.0.8
 
 from PyGamePractice import GREEN
 import pygame, sys, random
@@ -81,9 +81,11 @@ while True:
                     if b['dir'] == DOWNRIGHT:
                         b['dir'] = DOWNLEFT
                     if b['dir'] == UPRIGHT:
-                        b['dir'] = UPLEFT         
+                        b['dir'] = UPLEFT
 
-
+            # Draw the box onto the the game surface.
+            pygame.display.update()
+            time.sleep(0.02) 
 
 
 
