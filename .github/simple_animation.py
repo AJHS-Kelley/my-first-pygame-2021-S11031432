@@ -1,7 +1,6 @@
 # Simple Animation with PyGame, Caleb Jones, 1/12/22, 1:59PM, v.0.8
 
-from PyGamePractice import GREEN
-import pygame, sys, random
+import pygame, sys, time
 from pygame.locals import *
 
 # Setup PyGame
@@ -37,9 +36,9 @@ boxes = [b1, b2, b3]
 while True:
     # Check for QUIT event.
         for event in pygame.event.get():
-            if event.type == QUIT:
+            if event.type == quit:
                 pygame.quit()
-                    sys.exit()
+                sys.exit()
 
         windowSurface.fill(WHITE)
 
