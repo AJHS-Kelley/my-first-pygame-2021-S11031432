@@ -36,55 +36,55 @@ boxes = [b1, b2, b3]
 while True:
     # Check for QUIT event.
     for event in pygame.event.get():
-            if event.type == quit:
-                pygame.quit()
-                sys.exit()
+        if event.type == quit:
+            pygame.quit()
+            sys.exit()
 
-        windowSurface.fill(WHITE)
+    windowSurface.fill(WHITE)
 
-        for b in boxes:
-            # Move the box data structure.
-            if b['dir'] == DOWNLEFT:
-                b['rect'].left -= MOVESPEED
-                b['rect'].top += MOVESPEED
-            if b['dir'] == DOWNRIGHT:
-                b['rect'].left += MOVESPEED
-                b['rect'].top += MOVESPEED              
+    for b in boxes:
+        # Move the box data structure.
+        if b['dir'] == DOWNLEFT:
+            b['rect'].left -= MOVESPEED
+            b['rect'].top += MOVESPEED
+        if b['dir'] == DOWNRIGHT:
+            b['rect'].left += MOVESPEED
+            b['rect'].top += MOVESPEED              
+        if b['dir'] == UPLEFT:
+            b['rect'].left -= MOVESPEED
+            b['rect'].top -= MOVESPEED
+        if b['dir'] == UPRIGHT:
+            b['rect'].left += MOVESPEED
+            b['rect'].top -= MOVESPEED
+
+        if b['rect'].top < 0:
+            # The box has moved past the top.
             if b['dir'] == UPLEFT:
-                b['rect'].left -= MOVESPEED
-                b['rect'].top -= MOVESPEED
+                b['dir'] = DOWNLEFT
             if b['dir'] == UPRIGHT:
-                b['rect'].left += MOVESPEED
-                b['rect'].top -= MOVESPEED
-
-            if b['rect'].top < 0:
-                # The box has moved past the top.
+                b['dir'] = DOWNRIGHT
+            if b['rect'].bottom > WINDOWHEIGHT:
+                # The box has moved past the bottom.
+                if b['dir'] == DOWNLEFT:
+                    b['dir'] = UPLEFT
+                if b['dir'] == DOWNRIGHT:
+                    b['dir'] = UPRIGHT
+            if b['rect'].left < 0:
+                # The box has moved past the left.
+                if b['dir'] == DOWNLEFT:
+                    b['dir'] = DOWNRIGHT
                 if b['dir'] == UPLEFT:
+                    b['dir'] = UPRIGHT
+            if b['rect'].right > WINDOWWIDTH:
+                # The box has moved past the right.
+                if b['dir'] == DOWNRIGHT:
                     b['dir'] = DOWNLEFT
                 if b['dir'] == UPRIGHT:
-                    b['dir'] = DOWNRIGHT
-                if b['rect'].bottom > WINDOWHEIGHT:
-                    # The box has moved past the bottom.
-                    if b['dir'] == DOWNLEFT:
-                        b['dir'] = UPLEFT
-                    if b['dir'] == DOWNRIGHT:
-                        b['dir'] = UPRIGHT
-                if b['rect'].left < 0:
-                    # The box has moved past the left.
-                    if b['dir'] == DOWNLEFT:
-                        b['dir'] = DOWNRIGHT
-                    if b['dir'] == UPLEFT:
-                        b['dir'] = UPRIGHT
-                if b['rect'].right > WINDOWWIDTH:
-                    # The box has moved past the right.
-                    if b['dir'] == DOWNRIGHT:
-                        b['dir'] = DOWNLEFT
-                    if b['dir'] == UPRIGHT:
-                        b['dir'] = UPLEFT
+                    b['dir'] = UPLEFT
 
-            # Draw the box onto the the game surface.
-            pygame.display.update()
-            time.sleep(0.02) 
+        # Draw the box onto the the game surface.
+        pygame.display.update()
+        time.sleep(0.02) 
 
 
 
