@@ -1,4 +1,4 @@
-# PyGame Collision Detection Practice, Caleb Jones, January 18, 2022, 2:22pm, v.0.6
+# PyGame Collision Detection Practice, Caleb Jones, January 18, 2022, 2:39pm, v.0.7
 
 import pygame, sys, random
 from pygame.locals import *
@@ -57,6 +57,22 @@ while True:
             if event.key == K_DOWN or event.key == K_s:
                 moveUp = False
                 moveDown = True
+        if event.type == KEYUP:
+            if event.key == K_ESCAPE:
+                pygame.quit()
+                sys.exit()
+            # Check to see if the player has stopped moving
+            if event.key == K_LEFT or event.key == K_a:
+                moveLeft = False
+            if event.key == K_RIGHT or event.key == K_d:
+                moveRight = False
+            if event.key == K_UP or event.key == K_w:
+                moveUp = False
+            if event.key == K_DOWN or event.key == K_s:
+                moveDown = False
+            if event.key == K_x: # Use x to teleport the player
+                player.top = random.randint(0, WINDOWHEIGHT - player.height)
+                player.left = random.randint(0, WINDOWWIDTH - player.width)
 
 
 
